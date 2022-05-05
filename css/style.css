@@ -1,0 +1,95 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #fafafa;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    padding: 30px;
+    margin: 20px;
+    width: 400px;
+    transition: all 0.3s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.card p {
+    color: #75767c;
+    font-size: 16px;
+}
+
+a.fill-div {
+    color: #000;
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #000;
+    text-decoration: none;
+
+}
+
+.blue {
+
+
+    border: solid #4895ff;
+    border-width: 1px 1px 1px 5px;
+
+}
+
+.green {
+
+    border: solid #3bb54a;
+    border-width: 1px 1px 1px 5px;
+}
+
+.painel {
+
+    border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    padding: 30px;
+    margin: 20px;
+    width: 800px;
+    height: 700px;
+}
+
+.row {
+    display: inline-flex;
+}
+h2{
+    font-weight: lighter;
+    font-size: 28px;
+}
+
+.seta{
+    position: relative;
+    margin-left: 650px;
+    height: 40px;
+    border: 1px solid #3bb54a;
+    border-radius: 50px;
+    padding: 5px;
+    transition: all 0.3s ease-out;
+}
+.seta:hover{
+    background-color: #3bb54956;
+
+}
