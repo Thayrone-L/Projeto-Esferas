@@ -75,12 +75,13 @@ a:visited {
 .row {
     display: inline-flex;
 }
-h2{
+
+h2 {
     font-weight: lighter;
     font-size: 28px;
 }
 
-.seta{
+.seta {
     position: relative;
     margin-left: 650px;
     height: 40px;
@@ -89,7 +90,25 @@ h2{
     padding: 5px;
     transition: all 0.3s ease-out;
 }
-.seta:hover{
+
+.seta:hover {
     background-color: #3bb54956;
 
+}
+
+.setablue {
+    position: relative;
+    margin-left: 720px;
+    height: 40px;
+    margin-top: -300px;
+    margin-bottom: 50px;
+    border-radius: 50px;
+    padding: 5px;
+    transition: all 0.3s ease-out;
+
+    border: 1px solid #4895ff;
+}
+
+.setablue:hover {
+    background-color: #4894ff70
 }

@@ -1,0 +1,12 @@
+.nome{
+    width: 300px;
+}
+.sobrenome{
+    width: 500px;
+}
+.telefone{
+    width: 200px;
+}
+tr:hover{
+    background-color: rgb(171, 229, 231);
+}
