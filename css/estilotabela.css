@@ -1,0 +1,54 @@
+.nome{
+    width: 300px;
+}
+.sobrenome{
+    width: 400px;
+}
+.telefone{
+    width: 200px;
+}
+.email{
+  width: 300px;
+}
+#minhaTabela{
+    
+    margin:0 auto;
+    border:0;
+    border-spacing: 0;
+  }
+  
+  #minhaTabela thead th{
+    font-weight: bold;
+    background-color: black;
+    color:white;
+    
+    
+  }
+  
+  #minhaTabela tr td{
+    
+    
+    
+    cursor: pointer; /**importante para não mostrar cursor de texto**/
+  }
+  
+ 
+  
+  /**Cores**/
+  #minhaTabela tr:nth-child(odd){
+    background-color: #eee;
+  }
+  
+  /**Cor quando passar por cima**/
+  #minhaTabela tr:hover td{
+    background-color: #feffb7;
+  }
+  
+  /**Cor quando selecionado**/
+  #minhaTabela tr.selecionado td{
+    background-color: #aff7ff;
+  }
+
+.id{
+  visibility: hidden;
+}

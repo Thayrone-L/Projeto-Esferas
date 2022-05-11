@@ -18,7 +18,7 @@ function validacaoEmail() {
         (dominio.indexOf(".") >= 1) &&
         (dominio.lastIndexOf(".") < dominio.length - 1)) {
         document.getElementById("email").style.color = "#000";
-        //mostra("maisEmail");
+
 
 
     }
@@ -49,7 +49,7 @@ function meu_callback(conteudo) {
 
         limpa_formulário_cep();
         iniciaModal("modal-cadastrado", "CEP não encontrado.");
-        
+
     }
 }
 
@@ -88,7 +88,7 @@ function pesquisacep(valor) {
 
             limpa_formulário_cep();
             iniciaModal("modal-cadastrado", "Formato de CEP inválido.");
-            
+
         }
     }
     else {
@@ -97,21 +97,6 @@ function pesquisacep(valor) {
     }
 };
 
-/*
-
-function mostra(id) {
-    document.getElementById(id).style.visibility = "visible";
-}
-
-function clona(linha,id) {
-    var elementoOriginal = document.getElementById(id);
-    var elementoClone = elementoOriginal.cloneNode(true);
-    elementoClone.firstChild.value = 0;
-    // inserindo o elemento na paǵina
-    document.getElementById(linha).appendChild(elementoClone);
-}
-
-*/
 
 
 function cadastra() {
@@ -120,11 +105,7 @@ function cadastra() {
     var vsobrenome = document.getElementById('sobrenome').value;
     var vcpf = document.getElementById('cpf').value;
     var vemail = document.getElementById('email').value;
-    //var vemail2 = document.getElementById('email2').value;
-    //var vemail3 = document.getElementById('email3').value;
     var vtelefone = document.getElementById('telefone').value;
-    //var vtelefone2 = document.getElementById('telefone2').value;
-    //var vtelefone3 = document.getElementById('telefone3').value;
     var vcep = document.getElementById('cep').value;
     var vendereco = document.getElementById('rua').value;
     var vnumero = document.getElementById('numero').value;
@@ -132,16 +113,58 @@ function cadastra() {
     var vbairro = document.getElementById('bairro').value;
     var vcidade = document.getElementById('cidade').value;
     var vestado = document.getElementById('uf').value;
-  
-    if (vnome == "" || vsobrenome == "" || vcpf == "" || vemail == "" || vtelefone == "" || vcep == "" || vendereco == "" || vnumero == "" || vbairro == "" || vcidade == "" || vestado == "") {
-        iniciaModal("modal-cadastrado", "Confira os dados e tente novamente!");
-    } else {
-       
-        $.get("dados/cadastra.php", { nome: vnome, sobrenome: vsobrenome, cpf: vcpf, email: vemail, telefone: vtelefone, cep: vcep, endereco: vendereco, numero: vnumero, complemento: vcomplemento, bairro: vbairro, cidade: vcidade, estado: vestado }).done(function (data) {
-            
-            iniciaModal("modal-cadastrado", data);
-        });
+
+    var param = { nome : vnome , sobrenome : vsobrenome , cpf : vcpf , email : vemail , telefone : vtelefone , cep : vcep , endereco : vendereco , numero : vnumero , complemento : vcomplemento , bairro : vbairro , cidade : vcidade , estado : vestado };
+    console.log(param);
+    if(check_form()){
+    $.get("dados/cadastra.php", param).done(function(data) {
+        iniciaModal("modal-cadastrado", data);
+    });
     }
+}
+
+function atualiza() {
+    var vid = document.getElementById('id').value;
+    var vnome = document.getElementById('nome').value;
+    var vsobrenome = document.getElementById('sobrenome').value;
+    var vcpf = document.getElementById('cpf').value;
+    var vemail = document.getElementById('email').value;
+    var vtelefone = document.getElementById('telefone').value;
+    var vcep = document.getElementById('cep').value;
+    var vendereco = document.getElementById('rua').value;
+    var vnumero = document.getElementById('numero').value;
+    var vcomplemento = document.getElementById('complemento').value;
+    var vbairro = document.getElementById('bairro').value;
+    var vcidade = document.getElementById('cidade').value;
+    var vestado = document.getElementById('uf').value;
+
+    var param = { id:vid, nome : vnome , sobrenome : vsobrenome , cpf : vcpf , email : vemail , telefone : vtelefone , cep : vcep , endereco : vendereco , numero : vnumero , complemento : vcomplemento , bairro : vbairro , cidade : vcidade , estado : vestado };
+    console.log(param);
+    
+    if (check_form()) {
+        
+        $.get("dados/atualiza.php", param).done(function (data) {
+        console.log(data);
+        document.getElementById('modal-alteracao').classList.remove('mostrar');
+        iniciaModalResposta("modal-resposta", data);
+    });
+    }
+}
+
+
+
+
+function check_form(){
+    var inputs = document.getElementsByClassName('required');
+  var len = inputs.length;
+  var valid = true;
+  for(var i=0; i < len; i++){
+     if (!inputs[i].value){ valid = false; }
+  }
+  if (!valid){
+     iniciaModal("modal-cadastrado",'Por favor preencha todos os campos.');
+    return false;
+  } else { return true; }
 }
 
 function iniciaModal(modalID, data) {
@@ -150,7 +173,7 @@ function iniciaModal(modalID, data) {
 
     const modal = document.getElementById(modalID);
     if (modal) {
-        
+
         modal.classList.add('mostrar');
         document.getElementById('mensagem').innerText = data;
         modal.addEventListener('click', (e) => {
@@ -162,7 +185,25 @@ function iniciaModal(modalID, data) {
     }
 
 
+}
 
+function iniciaModalResposta(modalID, data) {
+
+
+
+    const modal = document.getElementById(modalID);
+    if (modal) {
+
+        modal.classList.add('mostrar');
+        document.getElementById('mensagem-Resposta').innerText = data;
+        modal.addEventListener('click', (e) => {
+            if (e.target.id == modalID || e.target.id == 'fechar') {
+                modal.classList.remove('mostrar');
+                document.location.reload(true);
+                localStorage.fechaModal = modalID;
+            }
+        });
+    }
 }
 
 function testaCPF() {
@@ -174,6 +215,8 @@ function testaCPF() {
     console.log(nStrCPF);
     if (nStrCPF == "00000000000") {
         iniciaModal("modal-cadastrado", "CPF inválido!");
+        document.getElementById("cpf").focus();
+
     }
 
     for (i = 1; i <= 9; i++) {
@@ -186,6 +229,7 @@ function testaCPF() {
     }
     if (Resto != parseInt(nStrCPF.substring(9, 10))) {
         iniciaModal("modal-cadastrado", "CPF inválido!");
+        document.getElementById("cpf").focus();
     }
     Soma = 0;
     for (i = 1; i <= 10; i++) {
@@ -198,6 +242,7 @@ function testaCPF() {
     }
     if (Resto != parseInt(nStrCPF.substring(10, 11))) {
         iniciaModal("modal-cadastrado", "CPF inválido!");
+        document.getElementById("cpf").focus();
     }
 
 }
