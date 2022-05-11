@@ -5,6 +5,7 @@ require_once __DIR__ . '/conecta.php';
 $result = "SELECT * FROM contatos";
 $resultado = mysqli_query($mysqli, $result);
 
+//Consulta o banco e preenche a tabela do listaCadastros.php com os dados encontratos.
 
 if (($resultado) and ($resultado->num_rows != 0)) {
     

@@ -18,6 +18,7 @@
     <div class="painelblue blue">
         <h2>Lista de contatos</h2>
         <a href="index.html"><img src="css/seta.png" class="setablue"></a>
+        <!-- Estrutura base da tabela-->
         <table id='minhaTabela'>
             <thead>
                 <tr>

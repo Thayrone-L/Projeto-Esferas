@@ -1,6 +1,9 @@
 var tabela = document.getElementById("minhaTabela");
 var linhas = tabela.getElementsByClassName("linha");
+
 $(document).ready(function () {
+
+    // divide a tabela de acordo com a quantidade de cadastros
     $('#minhaTabela').DataTable({
         language: {
             processing: "Processando...",
@@ -25,6 +28,9 @@ $(document).ready(function () {
             }
         }
     });
+
+    // fica ativo aguardando a linha ser selecionada
+
     for (var i = 0; i < linhas.length; i++) {
         var linha = linhas[i];
         linha.addEventListener("click", function () {
@@ -36,6 +42,7 @@ $(document).ready(function () {
 
 });
 
+// adiciona ou remove a classe "selecionado" na linha que foi clicada
 
 function selLinha(linha, multiplos) {
     if (!multiplos) {
@@ -50,6 +57,8 @@ function selLinha(linha, multiplos) {
 
 
 var btnVisualizar = document.getElementById("visualizarDados");
+
+//passa a linha selecionada como parâmetro e inicia o modal de alteração com os dados do banco
 
 btnVisualizar.addEventListener("click", function () {
     var selecionados = tabela.getElementsByClassName("selecionado");
@@ -76,6 +85,8 @@ btnVisualizar.addEventListener("click", function () {
 
 var btnExcluir = document.getElementById("excluirDados");
 
+//passa a linha selecionada como parâmetro, exclui o funcioário do banco e inicia o modal de resposta
+
 btnExcluir.addEventListener("click", function () {
     var selecionados = tabela.getElementsByClassName("selecionado");
 
@@ -99,6 +110,7 @@ btnExcluir.addEventListener("click", function () {
 
 });
 
+// inicia o modal com os dados
 
 function iniciaModalTabela(modalID, data) {
 
@@ -120,6 +132,8 @@ function iniciaModalTabela(modalID, data) {
 
 
 }
+
+// inicia o modal de resposta
 
 function iniciaModalResposta(modalID, data) {
 

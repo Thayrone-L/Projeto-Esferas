@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/conecta.php';
 
+// consulta pelo cpf se já existe um cadastro no banco de dados caso negativo, cadastra o funcionário no banco
+
 $nome = isset($_GET["nome"]) ? $_GET["nome"] : "";
 $sobrenome = isset($_GET["sobrenome"]) ? $_GET["sobrenome"] : "";
 $cpf = isset($_GET["cpf"]) ? $_GET["cpf"] : "";

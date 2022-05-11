@@ -1,3 +1,4 @@
+/* Estilos base */
 body {
     font-family: "Poppins", sans-serif;
     background-color: #fafafa;
@@ -47,7 +48,7 @@ a:visited {
     text-decoration: none;
 
 }
-
+/* Estilos de alteração e inclusão */
 .blue {
 
 

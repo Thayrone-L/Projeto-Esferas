@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/conecta.php';
 
+//realiza a consulta de um id específico no banco e retorna os dados como valores para o modal de visualização de cadastro do listaCadastros.php
 
 $id = isset($_GET["id"]) ? $_GET["id"] : "0";
 $result = "SELECT * FROM contatos WHERE id= $id" ;

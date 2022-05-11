@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/conecta.php';
 
+// exclui id selecionado do banco de dados
+
 $id = isset($_GET["id"]) ? $_GET["id"] : "";
 
 

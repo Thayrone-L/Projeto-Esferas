@@ -1,8 +1,14 @@
 $(document).ready(function () {
+
+    //aplica as máscaras nos campos
+
     $('#telefone').mask('(99) 99999-9999');
     $('#cep').mask('99999-999');
     $('#cpf').mask('999.999.999-99');
 });
+
+
+// valida o formato do campo email, verificando se contem "@" e "." nos devidos lugares
 
 function validacaoEmail() {
     field = document.getElementById('email');
@@ -28,6 +34,9 @@ function validacaoEmail() {
     }
 }
 
+
+// limpa os campos de endereço quando consulta pelo cep
+
 function limpa_formulário_cep() {
     document.getElementById('rua').value = ("");
     document.getElementById('bairro').value = ("");
@@ -35,6 +44,8 @@ function limpa_formulário_cep() {
     document.getElementById('uf').value = ("");
 
 }
+
+// preenche os campos com o resultado da busca pelo cep
 
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
@@ -52,6 +63,8 @@ function meu_callback(conteudo) {
 
     }
 }
+
+// busaca o endereço pelo cep difitado, usando api do viacep
 
 function pesquisacep(valor) {
 
@@ -97,7 +110,7 @@ function pesquisacep(valor) {
     }
 };
 
-
+// passa os dados do cadastro para o arquivo cadastra.php e chama o modal com a resposta do cadastro
 
 function cadastra() {
 
@@ -122,6 +135,8 @@ function cadastra() {
     });
     }
 }
+
+// passa os dados do cadastro para o arquivo atualiza.php e chama o modal com a resposta
 
 function atualiza() {
     var vid = document.getElementById('id').value;
@@ -152,7 +167,7 @@ function atualiza() {
 }
 
 
-
+// valida os campos required sem submeter o form, desse modo as outras funções podem chamar as funçoes necessárias sem atualizar a pagina
 
 function check_form(){
     var inputs = document.getElementsByClassName('required');
@@ -166,6 +181,8 @@ function check_form(){
     return false;
   } else { return true; }
 }
+
+// inicia modal
 
 function iniciaModal(modalID, data) {
 
@@ -187,6 +204,9 @@ function iniciaModal(modalID, data) {
 
 }
 
+
+// inicia modal de resposta
+
 function iniciaModalResposta(modalID, data) {
 
 
@@ -206,6 +226,8 @@ function iniciaModalResposta(modalID, data) {
     }
 }
 
+
+// valida o CPF usando o formato do mesmo e a formula.
 function testaCPF() {
     var Soma;
     var Resto;

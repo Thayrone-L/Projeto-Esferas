@@ -1,6 +1,9 @@
 <?php
 
 require_once __DIR__ . '/conecta.php';
+
+// atualiza o funcionário com o id selecionado no banco de dados
+
 $id = isset($_GET["id"]) ? $_GET["id"] : "";
 $nome = isset($_GET["nome"]) ? $_GET["nome"] : "";
 $sobrenome = isset($_GET["sobrenome"]) ? $_GET["sobrenome"] : "";

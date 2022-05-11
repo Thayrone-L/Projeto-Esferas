@@ -1,8 +1,9 @@
+/* Estilos base dos inputs */
 .form__group {
     position: relative;
     padding: 10px;
     margin-top: 5px;
-    
+
 }
 
 .form__field {
@@ -60,33 +61,42 @@
 .form__field:required:invalid {
     box-shadow: none;
 }
-.sobrenome{
+
+.sobrenome {
     width: 500px;
 }
-.email{
+
+.email {
     width: 700px;
 }
-.endereco{
+
+.endereco {
     width: 700px;
 }
-.complemento{
+
+.complemento {
     width: 350px;
 }
-.bairro{
+
+.bairro {
     width: 350px;
 }
-.cidade{
+
+.cidade {
     width: 420px;
 }
-.estado{
+
+.estado {
     width: 100px;
 }
-.cep{
+
+.cep {
     width: 200px;
 }
+
 .button {
-    
-    
+
+
     border: 1px solid #3bb54a;
     border-radius: 50px;
     color: #000;
@@ -97,27 +107,31 @@
     position: relative;
     margin-top: 120px;
     left: 310px;
-    
 
-  }
-  .button:hover{
+
+}
+
+.button:hover {
     background-color: #3bb54956;
     transform: scale(1.1);
     transition: all 0.3s ease-in-out;
 
 }
-.adicional{
+
+.adicional {
     padding-top: 20px;
     visibility: hidden;
-   
+
 }
-.adicional:hover{
+
+.adicional:hover {
     transform: scale(1.1);
     transition: all 0.3s ease-in-out;
 }
+
 .buttonAtualiza {
-    
-    
+
+
     border: 1px solid #3bb54a;
     border-radius: 50px;
     color: #000;
@@ -129,10 +143,11 @@
     margin-top: 120px;
     top: 600px;
     left: 150px;
-    
 
-  }
-  .buttonAtualiza:hover{
+
+}
+
+.buttonAtualiza:hover {
     background-color: #3bb54956;
     transform: scale(1.1);
     transition: all 0.3s ease-in-out;
@@ -140,8 +155,8 @@
 }
 
 .buttonExclui {
-    
-    
+
+
     border: 1px solid #b53b3b;
     border-radius: 50px;
     color: #000;
@@ -153,16 +168,17 @@
     margin-top: 120px;
     top: 600px;
     left: 550px;
-    
 
-  }
-  .buttonExclui:hover{
+
+}
+
+.buttonExclui:hover {
     background-color: #b53b3b56;
     transform: scale(1.1);
     transition: all 0.3s ease-in-out;
 
 }
 
-#id{
+#id {
     visibility: hidden;
 }
